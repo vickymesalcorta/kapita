@@ -92,16 +92,16 @@ public class InvestmentTest extends TestCase {
 		assertEquals(0, investment.getEarnings().compareTo(earnings));
 	}
 
-//	@Test
-//	public void testGetRealizedPnL() {
-//		investment.loadBuyTransaction(transaction1);
-//		investment.loadSellTransaction(transaction2);
-//		/* soldQuantity * (unitaryEarnings - unitaryCost)
-//		 * 		7	*	((119/7) - (310/20)) = 10.5
-//		 */
-//		BigDecimal pnl = new BigDecimal("10.5");
-//		assertEquals(0, pnl.compareTo(investment.getRealizedPnL().getValue()));		
-//	}
+	@Test
+	public void testGetRealizedPnL() {
+		investment.loadBuyTransaction(transaction1);
+		investment.loadSellTransaction(transaction2);
+		/* soldQuantity * (unitaryEarnings - unitaryCost)
+		 * 		7	*	((119/7) - (310/20)) = 10.5
+		 */
+		BigDecimal pnl = new BigDecimal("10.5");
+		assertEquals(0, pnl.compareTo(investment.getRealizedPnL().getValue()));		
+	}
 	
 	@Test
 	public void testGetUnrealizedPnL() {
@@ -111,17 +111,15 @@ public class InvestmentTest extends TestCase {
 		 * 		13	*	(20 - (310/20)) = 58.5
 		 */
 		BigDecimal pnl = new BigDecimal("58.5");
-		System.out.println(pnl);
-		System.out.println(investment.getUnrealizedPnL(currentPrice).getValue());
 		assertEquals(0, pnl.compareTo(investment.getUnrealizedPnL(currentPrice).getValue()));		
 	}
 
-//	@Test
-//	public void testGetPnL(){
-//		investment.loadBuyTransaction(transaction1);
-//		investment.loadSellTransaction(transaction2);
-//		/* pnl = unrealizedPnL + realizedPnL */
-//		BigDecimal pnl = new BigDecimal("69");
-//		assertEquals(0, pnl.compareTo(investment.getPnL(currentPrice).getValue()));
-//	}
+	@Test
+	public void testGetPnL(){
+		investment.loadBuyTransaction(transaction1);
+		investment.loadSellTransaction(transaction2);
+		/* pnl = unrealizedPnL + realizedPnL */
+		BigDecimal pnl = new BigDecimal("69");
+		assertEquals(0, pnl.compareTo(investment.getPnL(currentPrice).getValue()));
+	}
 }
